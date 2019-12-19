@@ -9,9 +9,8 @@ package parkhaussystem;
  *
  * @author phili
  */
-public class Einfahrt extends Schranke{
-    public Ticket Einfahrt(){
-        return Ticket;
+public class Eingabe {
+    public int Zahl(){
+        Scanner = new Scanner
     }
 }
-    

@@ -18,4 +18,11 @@ public class Schranke {
     public void öffnen(){
         isOffen = true;
     }
+    
+    @Override
+    public String toString(){
+        String s;
+        s = "Status: "+ (this.isOffen ? "offen": "geschlossen");
+        return s;
+    }
 }

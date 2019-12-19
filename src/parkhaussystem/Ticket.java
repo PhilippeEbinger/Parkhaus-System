@@ -20,4 +20,14 @@ public class Ticket {
     public double getBetrag(){
         return 0;
     }
+    
+    @Override
+    public String toString(){
+        String s = "";
+       s += "Ausgabe: " + this.ausgabe.toString()+"\n";
+       s += "Verfall: " + this.verfall.toString()+"\n";
+       s += "Preis: " + this.getBetrag();
+  
+       return s;
+    }
 }

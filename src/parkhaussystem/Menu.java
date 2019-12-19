@@ -5,13 +5,16 @@
  */
 package parkhaussystem;
 
+import java.util.Collection;
+import java.util.HashSet;
+
 /**
  *
  * @author phili
  */
-public class Einfahrt extends Schranke{
-    public Ticket Einfahrt(){
-        return Ticket;
-    }
+public class Menu {
+    protected Collection<MenüEintrag> eintrag = new HashSet<MenüEintrag>();
 }
-    
+private class MenüEintrag{
+
+}
