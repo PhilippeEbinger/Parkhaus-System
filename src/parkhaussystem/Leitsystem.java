@@ -21,16 +21,31 @@ public class Leitsystem {
     protected TreeMap<Integer, Ticket> tickets = new TreeMap<Integer, Ticket>();
     
     
-    public int GetFreiePlätze(){
+    public int GetFreiePlaetze(){
         return MAX_PLÄTZE - this.GetBelegtePlätze();
     }
     public int GetBelegtePlätze(){
         return tickets.size();
     }
     
+    public void einfahrt(){
+        if (0 < this.GetFreiePlaetze()){
+            int index = tickets.size() == 0 ? 0: tickets.lastKey() + 1;
+            tickets.put(index, einfahrt.einfahrt());
+        }
+    }
+    
+    public void ausfahrt(int key){
+        ausfahrt.ausfahrt(tickets, key);
+    }
+    
+    public void zahlen(int key){
+        kasse.zahlen(tickets, key);
+    }
+    
     public String getMenu(){
         String x = "";
-        if (this.GetFreiePlätze() > 0){
+        if (this.GetFreiePlaetze() > 0){
             x += "E - Einfahrt\t";
         }
         if (this.GetBelegtePlätze() > 0){
@@ -50,7 +65,7 @@ public class Leitsystem {
         s = "Anzahl Plätze\n";
         s += "Verfügbar:\t" + this.MAX_PLÄTZE + "\n";
         s += "Belegt\t\t" + this.GetBelegtePlätze() + "\n";
-        s += "Frei:\t\t" + this.GetFreiePlätze() + "\n";
+        s += "Frei:\t\t" + this.GetFreiePlaetze() + "\n";
         s += "Einfahrtschranke:\n" + einfahrt + "\n";
         s += "Ausfahrtschranke:\n" + ausfahrt + "\n";
         s += "Tickets:\n";

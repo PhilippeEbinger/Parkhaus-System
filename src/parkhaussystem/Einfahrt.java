@@ -10,8 +10,9 @@ package parkhaussystem;
  * @author phili
  */
 public class Einfahrt extends Schranke{
-    public Ticket Einfahrt(){
-        return Ticket;
+    public Ticket einfahrt(){
+        this.öffnen();
+        return new Ticket();
     }
 }
     

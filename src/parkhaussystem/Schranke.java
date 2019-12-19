@@ -17,6 +17,7 @@ public class Schranke {
     }
     public void öffnen(){
         isOffen = true;
+        
     }
     
     @Override

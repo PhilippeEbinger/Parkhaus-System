@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package parkhaussystem;
-import java.util.Scanner;
 /**
  *
  * @author phili
@@ -19,7 +18,7 @@ public class Parkhaussystem {
         do{
             taste = showMenu();
             execMenu(taste);
-        } while (taste != 'X');
+        } while (taste != 'X'); //Beenden
     }
     
     public static char showMenu(){
@@ -34,18 +33,20 @@ public class Parkhaussystem {
     public static void execMenu(char pos){
         int key;
         switch(pos){
-            case 'E':
-                //mySystem.einfahrt();
-            case 'A':
+            case 'E': //Einfahrt
+                mySystem.einfahrt();
+                break;
+            case 'A': //Ausfahrt
                 System.out.println("Mit welchem Ticked soll ausgefahren werden?");
                 key = CLesen.readInt();
-                //mySystem.ausfahrt(key);
+                mySystem.ausfahrt(key);
                 break;
-            case 'Z':
+            case 'Z': //Zahlen
                 System.out.println("Welches Ticket soll bezahlt werden?");
                 key = CLesen.readInt();
+                mySystem.zahlen(key);
                 break;
-            case 'S':
+            case 'S': //Statutus
                 System.out.println(mySystem);
                 System.out.println("...Bitte Taste drücken...");
                 new java.util.Scanner(System.in).nextLine();

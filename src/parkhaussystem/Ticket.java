@@ -14,12 +14,28 @@ public class Ticket {
     protected DateTime ausgabe;
     protected DateTime verfall;
     protected final double PREIS = 2.50;
+    
+    
     public Ticket(){
-        
+        ausgabe = new DateTime(DateTimeZone.UTC);
+        verfall = ausgabe.plusSeconds(10);
     }
+    
     public double getBetrag(){
-        return 0;
+        DateTime jetzt = new DateTime(DateTimeZone.UTC);
+        int sekunden = Seconds.secondsBetween(verfall, jetzt).getSeconds();
+        if (sekunden <= 0){
+            return 0;
+        }else{
+            return sekunden * PREIS;
+        }
     }
+    
+    public void setVerfall(){
+        DateTime jetzt = new DateTime(DateTimeZone.UTC);
+        verfall = jetzt.plusSeconds(10);
+    }
+    
     
     @Override
     public String toString(){
